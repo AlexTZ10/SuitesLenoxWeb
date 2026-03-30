@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestros 3 Meses 💖</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="hearts"></div>
+
+  <main class="container">
+
+
+
+
+    <!-- FACHADA HOTEL -->
+<section id="hotelIntro" class="card active">
+
+<h1>FORMULARIO DE SATISFACCIÓN AL CLIENTE</h1>
+
+
+
+<p>
+Gracias por hospedarte en <b>Lenox Suites</b>.  
+Tu opinión es muy importante para nosotros.  
+Por favor califica tu experiencia en nuestro hotel.
+</p>
+
+<p>
+  Al llenar este formulario recibirás un pequeño presente como agradecimiento.
+</p>
+
+<img src="/img/lenox.jpg" class="logoHotel">
+
+<div class="rating">
+  <p>Atención</p>
+  <div class="stars" data-rating="0">
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+  </div>
+</div>
+
+<div class="rating">
+  <p>Comodidad</p>
+  <div class="stars" data-rating="0">
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+  </div>
+</div>
+
+<div class="rating">
+  <p>Espacio</p>
+  <div class="stars" data-rating="0">
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+  </div>
+</div>
+
+<div class="rating">
+  <p>Recreación</p>
+  <div class="stars" data-rating="0">
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+  </div>
+</div>
+
+<div class="rating">
+  <p>Iluminación</p>
+  <div class="stars" data-rating="0">
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+  </div>
+</div>
+
+<div class="rating">
+  <p>Confort</p>
+  <div class="stars" data-rating="0">
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+  </div>
+</div>
+
+<button class="btn-hotel" onclick="abrirSorpresa()">
+Enviar evaluación
+</button>
+
+</section>
+
+
+
+
+<div id="modalEnvio" class="modal-envio">
+  <div class="modal-envio-box">
+    <p>Procesando tu evaluación para participar en el premio de Lenox Suites..."</p>
+    <h1 id="contadorEnvio">5</h1>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    <!-- INICIO -->
+    <section id="inicio" class="card ">
+      <h1>¡SORPRESA!</h1>
+      <h1>💜Feliz 3 Meses💜</h1>
+      <h2> A y L</h2>
+      <p id="introTexto"></p>
+      <button class="btn-romantico" onclick="startGame()">
+        Comenzar
+      </button>
+    </section>
+
+    <!-- JUEGO -->
+    <section id="juego" class="card">
+      <div class="score-box">
+        💖 Puntos del nivel: <span id="score">0</span>
+      </div>
+
+      <h2 id="nivel"></h2>
+      <p id="pregunta"></p>
+      <div id="opciones" class="opciones"></div>
+    </section>
+
+    <!-- PREMIO -->
+    <section id="premio" class="card">
+      <h2 id="mensajePremio"></h2>
+      <img id="imagenPremio">
+      <button class="btn-romantico" onclick="siguienteNivel()">Continuar 💞</button>
+    </section>
+
+    <!-- PREMIO FINAL -->
+    <section id="premioFinal" class="card">
+      <h1>Premio Final por Ganar el juego 💖</h1>
+      <div id="carruselFinal">
+        <img src="/img/carrusel1.jpg" class="finalImg">
+        <img src="/img/carrusel2.jpg" class="finalImg">
+        <img src="/img/carrusel3.jpg" class="finalImg">
+        <img src="/img/carrusel4.jpg" class="finalImg">
+        <img src="/img/carrusel5.jpg" class="finalImg">
+      </div>
+    </section>
+
+    <!-- FINAL -->
+    <section id="final" class="card">
+      <h1>Te Quiero Muchísimo ❤️</h1>
+      <p>
+        Estos tres meses contigo han sido hermosos, de verdad. Me encanta tu forma de
+        ser, tu sonrisa, tus bromas, tus formas de molestarme y cómo haces que todo se sienta más especial. Me gusta pensar que seguimos aprendiendo juntos,
+        conociéndonos más y ayudándonos a mejorar como pareja, siempre eligiéndonos el uno al otro. Yo sé que no soy
+        perfecto, pero quiero ser mejor cada día y como te dije ser la mejor versión de mi para ti y para nosotros, porque de verdad creo en lo que estamos construyendo y en
+        todo lo que aún podemos lograr juntos, amor.
+
+        Gracias también por tenerme paciencia a veces, de verdad lo valoro mucho y tú sabes que yo también te tengo
+        paciencia, aunque de vez en cuando me saques de quicio JAJAJA. Realmente sé que me
+        quieres y sé que tú también sabes que yo te quiero.
+
+        Y sí, lo digo en serio me ilusiona mucho pensar en un futuro contigo, en seguir formando lo nuestro y que tú seas la
+        mamacita de mis hijos.
+      </p>
+      <img src="/img/fraseArabe.png">
+    </section>
+
+  </main>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal">
+    <div id="modalContenido" class="modal-box">
+      <p id="modalTexto"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

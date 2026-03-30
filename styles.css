@@ -1,0 +1,490 @@
+:root {
+  --lila: #a855f7;
+  --rojo: #ff4b5c;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, var(--lila), var(--rojo));
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.card {
+  display: none;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  padding: 25px;
+  text-align: center;
+}
+
+.card.active {
+  display: block;
+  animation: entrada 0.8s ease;
+}
+
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* CORAZONES */
+.hearts {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  bottom: -10px;
+  font-size: 20px;
+  animation: subir 5s linear infinite;
+}
+
+@keyframes subir {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+/* SCORE */
+.score-box {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  animation: latido 1.5s infinite;
+}
+
+@keyframes latido {
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* OPCIONES */
+.opciones {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.opcion {
+  background: white;
+  color: var(--lila);
+  padding: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.opcion:hover {
+  transform: scale(1.05);
+  background: var(--rojo);
+  color: white;
+}
+
+.correcta {
+  background: #22c55e !important;
+  color: white;
+}
+
+.incorrecta {
+  background: #ef4444 !important;
+  color: white;
+}
+
+/* BOTÓN */
+.btn-romantico {
+  background: linear-gradient(135deg, #ff4b5c, #a855f7);
+  border: none;
+  padding: 15px 25px;
+  border-radius: 30px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  animation: latidoBtn 1.5s infinite;
+  transition: 0.3s;
+}
+
+@keyframes latidoBtn {
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.modal.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-box {
+  padding: 25px 30px;
+  border-radius: 20px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  transform: scale(0.7);
+  transition: transform 0.5s ease;
+}
+
+.modal.show .modal-box {
+  transform: scale(1);
+}
+
+.modal-success {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.7);
+}
+
+.modal-error {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.7);
+}
+
+/* 🔥 CARRUSEL FINAL (ARREGLADO) */
+#carruselFinal {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 420px; /* 🔥 MÁS ALTURA PARA FOTOS VERTICALES */
+  margin: 20px auto 0 auto;
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+/* 🔥 IMÁGENES SIN DEFORMACIÓN */
+.finalImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 🔥 CLAVE */
+  object-position: center top; /* 🔥 EVITA CORTAR CARAS */
+  opacity: 0;
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.finalImg.active {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (min-width: 600px) {
+  .opciones {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* IMÁGENES GENERALES */
+img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+/* PREGUNTA EN NEGRITA */
+#pregunta {
+  font-weight: bold;
+}
+
+
+
+
+#premioFinal .carruselFinal{
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.finalImg{
+  left: 30px;
+  height:90%;
+  width: 90%;
+}
+
+
+
+/*FORMULARIO FACHADA*//* HOTEL FACHADA */
+
+
+.hotel-card{
+  text-align:center;
+}
+
+.hotel-logo{
+  width:120px;
+  margin-bottom:10px;
+}
+
+.hotel-portada{
+  width:100%;
+  border-radius:15px;
+  margin-bottom:15px;
+}
+
+.hotel-texto{
+  font-size:14px;
+  margin-bottom:20px;
+  opacity:0.9;
+}
+
+.rating-box{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.rating-item{
+  background:rgba(255,255,255,0.15);
+  padding:10px;
+  border-radius:10px;
+}
+
+.rating-item p{
+  margin:0;
+  font-size:14px;
+}
+
+.stars{
+  font-size:18px;
+  letter-spacing:3px;
+  margin-top:3px;
+}
+
+.btn-hotel{
+  background:#ffffff;
+  color:#a855f7;
+  border:none;
+  padding:12px 20px;
+  border-radius:20px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn-hotel:hover{
+  transform:scale(1.05);
+}
+
+
+
+/* ============================= */
+/* ESTILO HOTEL (FACHADA FALSA) */
+/* ============================= */
+
+#hotelIntro{
+  background: linear-gradient(160deg,#0f0f0f,#1a1a1a);
+  color:#eee;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+/* LOGO HOTEL */
+
+.logoHotel{
+  width:130px;
+  border-radius:20px;
+  margin-bottom:20px;
+}
+
+/* PORTADA */
+
+.portadaHotel{
+  width:100%;
+  max-width:350px;
+  border-radius:20px;
+  margin:15px auto 25px auto;
+}
+
+/* TITULO */
+
+#hotelIntro h1{
+  font-size:28px;
+  letter-spacing:2px;
+  color:#ffffff;
+}
+
+/* TEXTO */
+
+#hotelIntro p{
+  color:#bbbbbb;
+  font-size:15px;
+  margin-bottom:25px;
+}
+
+/* CAJAS DEL FORMULARIO */
+
+.rating{
+  background:#181818;
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:15px;
+  padding:15px;
+  margin-bottom:15px;
+  transition:0.3s;
+}
+
+.rating:hover{
+  border-color:#ff2b2b;
+  transform:scale(1.02);
+}
+
+.rating p{
+  margin-bottom:8px;
+  color:#ddd;
+}
+
+/* ESTRELLAS */
+
+.stars{
+  font-size:20px;
+  color:#ffd700;
+  letter-spacing:4px;
+}
+
+/* BOTON HOTEL */
+
+.btn-hotel{
+  margin-top:20px;
+  background:linear-gradient(135deg,#a80000,#ff2b2b);
+  border:none;
+  padding:14px 25px;
+  border-radius:25px;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn-hotel:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 15px rgba(255,0,0,0.6);
+}
+
+
+
+
+/* RATING ESTRESLLAS*/
+/* ESTRELLAS INTERACTIVAS */
+
+.stars{
+  font-size:28px;
+  cursor:pointer;
+}
+
+.stars span{
+  color:#555;
+  transition:0.2s;
+}
+
+.stars span.active{
+  color:#FFD700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* MODAL ENVIO HOTEL */
+
+.modal-envio{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.85);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:0.3s;
+  z-index:1000;
+}
+
+.modal-envio.show{
+  opacity:1;
+  pointer-events:all;
+}
+
+.modal-envio-box{
+  background:#111;
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.modal-envio-box p{
+  color:#aaa;
+  margin-bottom:10px;
+}
+
+#contadorEnvio{
+  font-size:60px;
+  color:#ff2b2b;
+  margin:0;
+}
+
+
+
+#premio .btn-romantico{
+  margin-top: 20px;
+}
