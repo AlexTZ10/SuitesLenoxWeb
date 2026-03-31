@@ -338,7 +338,7 @@ function abrirSorpresa() {
 
   modal.classList.add("show");
 
-  let tiempo = 1;
+  let tiempo = 10;
 
   contador.innerText = tiempo;
 
