@@ -171,18 +171,27 @@ function startGame() {
 }
 
 function cargarPregunta() {
+
+  let contenedor = document.getElementById("opciones");
+
+  // 👇 LIMPIAR TODO COMPLETAMENTE
+  contenedor.innerHTML = "";
+  contenedor.style.opacity = "1";
+
   let data = preguntas[nivel][preguntaIndex];
+
   document.getElementById("nivel").innerText = "Nivel " + nivel;
   document.getElementById("pregunta").innerText = data.p;
 
-  let contenedor = document.getElementById("opciones");
-  contenedor.innerHTML = "";
-
   data.opciones.forEach((op, i) => {
     let div = document.createElement("div");
-    div.classList.add("opcion");
+    div.className = "opcion"; // 👈 importante (redefine limpio)
     div.innerText = op;
-    div.onclick = () => seleccionar(div, i);
+
+    div.onclick = () => {
+      seleccionar(div, i);
+    };
+
     contenedor.appendChild(div);
   });
 }
@@ -204,42 +213,85 @@ function mostrarModal(texto, tipo, callback) {
 }
 
 function seleccionar(el, i) {
+
   let data = preguntas[nivel][preguntaIndex];
   let ops = document.querySelectorAll(".opcion");
-  ops.forEach((o) => (o.onclick = null));
+
+  // 🚫 BLOQUEAR TODOS LOS BOTONES (evita clics fantasmas en móvil)
+  ops.forEach(btn => {
+    btn.onclick = null;
+    btn.style.pointerEvents = "none";
+  });
+
+  // ✨ LIMPIAR cualquier color previo (extra seguridad)
+  ops.forEach(btn => {
+    btn.classList.remove("correcta");
+    btn.classList.remove("incorrecta");
+  });
 
   if (i === data.correcta) {
     el.classList.add("correcta");
     aciertos++;
     actualizarScore();
-    mostrarModal("¡Muy bien baby +1 punto!", "ok", siguientePaso);
+
+    mostrarModal("¡Muy bien baby +1 punto!", "ok", () => {
+      siguientePaso();
+    });
+
   } else {
     el.classList.add("incorrecta");
     ops[data.correcta].classList.add("correcta");
-    mostrarModal("💔 Fallaste baby", "error", siguientePaso);
+
+    mostrarModal("💔 Fallaste baby", "error", () => {
+      siguientePaso();
+    });
   }
 }
 
+
 function siguientePaso() {
 
-limpiarColores(); // 👈 AQUI
+  // 🧹 LIMPIAR COLORES DE BOTONES
+  document.querySelectorAll(".opcion").forEach(btn => {
+    btn.classList.remove("correcta");
+    btn.classList.remove("incorrecta");
 
+    // 🔓 VOLVER A ACTIVAR CLICS
+    btn.style.pointerEvents = "auto";
+  });
 
+  // 👉 AVANZAR PREGUNTA
   preguntaIndex++;
 
   if (preguntaIndex >= 2) {
+
     if (aciertos === 2) {
-      if (nivel < 6) premio();
-      else mostrarPremioFinal();
+
+      if (nivel < 6) {
+        premio();
+      } else {
+        mostrarPremioFinal();
+      }
+
     } else {
       alert("💞 Intentemos otra vez amor 💞");
+
+      // 🔄 REINICIAR NIVEL
       preguntaIndex = 0;
       aciertos = 0;
       actualizarScore();
+
       cargarPregunta();
     }
-  } else cargarPregunta();
+
+  } else {
+
+    // 👉 SIGUIENTE PREGUNTA NORMAL
+    cargarPregunta();
+  }
 }
+
+
 
 function premio() {
   show("premio");
