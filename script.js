@@ -221,6 +221,10 @@ function seleccionar(el, i) {
 }
 
 function siguientePaso() {
+
+limpiarColores(); // 👈 AQUI
+
+
   preguntaIndex++;
 
   if (preguntaIndex >= 2) {
@@ -334,8 +338,8 @@ function abrirSorpresa() {
 
   modal.classList.add("show");
 
-  let tiempo = 10;
-  
+  let tiempo = 1;
+
   contador.innerText = tiempo;
 
   const intervalo = setInterval(() => {
@@ -354,4 +358,14 @@ function abrirSorpresa() {
       document.getElementById("inicio").classList.add("active");
     }
   }, 1000);
+}
+
+
+
+
+function limpiarColores() {
+  document.querySelectorAll(".opcion").forEach(btn => {
+    btn.classList.remove("correcta");
+    btn.classList.remove("incorrecta");
+  });
 }
