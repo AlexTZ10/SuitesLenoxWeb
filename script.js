@@ -146,12 +146,12 @@ function premio(){
   show("premio");
 
   const premios={
-    1:{msg:"Muy bien pasaste el Nivel 1 ❤️",img:"img/foto4fantasticos.jpg"},
-    2:{msg:"Muy bien pasaste el Nivel 2 ❤️",img:"img/primeraSalida.jpg"},
-    3:{msg:"Muy bien pasaste el Nivel 3 ❤️",img:"img/fotoMiCumpleaños.jpg"},
-    4:{msg:"Muy bien pasaste el Nivel 4 ❤️",img:"img/floresAmarillas.jpg"},
-    5:{msg:"Muy bien pasaste el Nivel 5 ❤️",img:"img/matchOutfit.jpg"},
-    6:{msg:"Muy bien pasaste el Nivel 6 ❤️",img:"img/añoNuevo.jpg"}
+    1:{msg:"Muy bien pasaste el Nivel 1 ❤️",img:"img/foto4fantasticos.webp"},
+    2:{msg:"Muy bien pasaste el Nivel 2 ❤️",img:"img/primeraSalida.webp"},
+    3:{msg:"Muy bien pasaste el Nivel 3 ❤️",img:"img/fotoMiCumpleaños.webp"},
+    4:{msg:"Muy bien pasaste el Nivel 4 ❤️",img:"img/floresAmarillas.webp"},
+    5:{msg:"Muy bien pasaste el Nivel 5 ❤️",img:"img/matchOutfit.webp"},
+    6:{msg:"Muy bien pasaste el Nivel 6 ❤️",img:"img/añoNuevo.webp"}
   };
 
   document.getElementById("mensajePremio").innerText=premios[nivel].msg;
