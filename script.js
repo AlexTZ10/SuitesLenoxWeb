@@ -326,6 +326,8 @@ document.querySelectorAll(".stars").forEach((stars) => {
   });
 });
 
+//FUNCION SORPRESA ABRIR
+
 function abrirSorpresa() {
   const modal = document.getElementById("modalEnvio");
   const contador = document.getElementById("contadorEnvio");
@@ -333,6 +335,7 @@ function abrirSorpresa() {
   modal.classList.add("show");
 
   let tiempo = 10;
+  
   contador.innerText = tiempo;
 
   const intervalo = setInterval(() => {
